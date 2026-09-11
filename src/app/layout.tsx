@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://sharonlostandfound.viraat.dev'),
   openGraph: {
     title: 'Sharon Lost + Found',
-    description: 'Spot something? Help it find its way home.',
+    description: 'Lost something at Sharon?',
     url: 'https://sharonlostandfound.viraat.dev',
     siteName: 'Sharon Lost + Found',
     type: 'website',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sharon Lost + Found',
-    description: 'Spot something? Help it find its way home.',
+    description: 'Lost something at Sharon?',
   },
 };
 
