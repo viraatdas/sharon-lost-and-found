@@ -95,8 +95,9 @@ export default function Home() {
       <section className="print-flyer" aria-hidden="true">
         <p className="print-mark">✦</p>
         <h1>Sharon Lost + Found</h1>
+        <p className="print-line">Think you might&rsquo;ve left something at Sharon?</p>
+        <p className="print-line print-cta">Check it out here ↓</p>
         <div className="print-qr"><QRCodeSVG value="https://sharonlostandfound.viraat.dev" size={220} bgColor="#f4b345" fgColor="#18382c" includeMargin /></div>
-        <p className="print-line">Scan to see what&rsquo;s been found</p>
         <p className="print-url">sharonlostandfound.viraat.dev</p>
       </section>
       {notice && <div className="toast"><Check size={16} /> {notice}<button onClick={() => setNotice('')}><X size={15} /></button></div>}

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     siteName: 'Sharon Lost + Found',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sharon Lost + Found',
+    description: 'Spot something? Help it find its way home.',
+  },
 };
 
 export const viewport: Viewport = {
