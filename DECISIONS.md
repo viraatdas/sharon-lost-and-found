@@ -21,3 +21,10 @@ Shared, agent-authored log of cross-cutting decisions the fleet must honor. The 
 - **Note:** SMS sending is fully wired (env vars set on Vercel for all environments) but AWS reports the origination toll-free number (+18773188077) is still `PENDING` carrier verification (`RESOURCE_NOT_ACTIVE`). No code changes needed once AWS approves it — texts will start sending automatically.
 - **Delivery:** deployed; web; target=sharonlostandfound.viraat.dev; revision=6b4c35c; verifiedAt=2026-09-11T00:00:00Z; checks=3
 - **By:** worker · 2026-09-11
+
+## worker: Corrected SMS delivery claim, switched to Twilio, submitted carrier registrations
+- **Did:** The earlier "confirmed delivered" claim for AWS SNS was wrong — Publish succeeding only means AWS accepted the request, not that a carrier delivered it. Pulled CloudWatch delivery logs and found every send failing with "No origination identity available to send to destination number." Root cause: the AWS toll-free number's verification was an unsubmitted draft, not "pending AWS review" as assumed.
+- Filled in and submitted both AWS's toll-free registration (US_TOLL_FREE_REGISTRATION, status SUBMITTED) and Twilio's toll-free verification (status PENDING_REVIEW) using Exla's business info (2 Embarcadero Center, San Francisco; exla.ai) — registration/case IDs and the EIN are in the respective AWS/Twilio consoles, not committed here. Twilio's stated turnaround is 24-72hrs, typically faster than AWS.
+- Switched src/lib/sms.ts from AWS SNS to Twilio (toll-free +18884233613; account/API key credentials live only in Vercel env and .env.local, not in git), and made it actually poll the message status for a terminal state (delivered/undelivered/failed) before reporting success, instead of trusting the initial "queued" response — this is what caused the earlier false positive.
+- **Note:** Texting will not work for anyone until Twilio's (or AWS's) toll-free verification is approved. No code changes needed once approved.
+- **By:** worker · 2026-09-11
