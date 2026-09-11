@@ -90,8 +90,7 @@ export default function Home() {
           </>
         )}
       </section>
-      <section className="qr-section"><div className="qr"><QRCodeSVG value="https://sharonlostandfound.viraat.dev" size={112} bgColor="#f4b345" fgColor="#18382c" includeMargin /></div><div><h2>Scan to see the board.</h2><p>Print this code for the lobby.</p></div><button className="text-button print" onClick={() => window.print()}>Print the code <span>↗</span></button></section>
-      <footer><span>Made for the people of Sharon</span><a href="#top">Back to top ↑</a></footer>
+      <footer><span>Made for the people of Sharon</span><div className="footer-actions"><button className="text-button print" onClick={() => window.print()}>Print QR code <span>↗</span></button><a href="#top">Back to top ↑</a></div></footer>
       <section className="print-flyer" aria-hidden="true">
         <p className="print-mark">✦</p>
         <h1>Sharon Lost + Found</h1>

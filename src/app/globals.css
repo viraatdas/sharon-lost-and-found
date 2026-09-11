@@ -61,15 +61,9 @@ h1,h2,h3,.kicker,.button,.wordmark,.card-copy h3,.claimed-stamp { font-family:'S
 .claim-actions button:last-child { background:var(--coral); }
 .claim-actions button:active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink); }
 
-/* qr */
-.qr-section { max-width:860px; margin:0 auto; padding:50px 16px; display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
-.qr { display:grid; place-items:center; background:var(--sun); padding:12px; border:3px solid var(--ink); box-shadow:5px 5px 0 var(--shadow); }
-.qr-section h2 { font-size:22px; margin:0 0 8px; }
-.qr-section>div>p:last-child { font-size:17px; max-width:420px; margin:0; }
-.print { align-self:flex-start; }
-
-footer { border-top:3px dashed var(--ink); max-width:1060px; padding:20px 16px; margin:auto; font-size:14px; display:flex; flex-direction:column; gap:8px; }
+footer { border-top:3px dashed var(--ink); max-width:1060px; padding:20px 16px; margin:auto; font-size:14px; display:flex; flex-direction:column; gap:14px; }
 footer a { font-family:'Silkscreen',monospace; font-size:11px; }
+.footer-actions { display:flex; align-items:center; gap:20px; }
 
 /* modals */
 .modal-wrap { position:fixed; inset:0; z-index:10; background:rgba(24,56,44,.55); display:grid; place-items:center; padding:16px; overflow:auto; }
@@ -122,9 +116,6 @@ footer a { font-family:'Silkscreen',monospace; font-size:11px; }
   .section-head h2 { font-size:34px; }
   .item-grid { grid-template-columns:repeat(3,1fr); gap:20px; }
   .card-copy h3 { font-size:16px; }
-  .qr-section { flex-direction:row; align-items:center; padding:60px 24px; gap:32px; }
-  .qr-section h2 { font-size:28px; }
-  .print { margin-left:auto; align-self:center; }
   footer { flex-direction:row; justify-content:space-between; align-items:center; padding:24px; }
   .upload-modal { padding:36px 32px; }
 }
@@ -138,7 +129,7 @@ footer a { font-family:'Silkscreen',monospace; font-size:11px; }
 @page { margin:0; }
 
 @media print {
-  .topbar,.board,.qr-section,footer { display:none!important; }
+  .topbar,.board,footer { display:none!important; }
   .print-flyer {
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
     text-align:center; min-height:100vh; padding:2cm;
