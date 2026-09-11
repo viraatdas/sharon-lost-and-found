@@ -59,7 +59,7 @@ export default function Home() {
     <main id="top">
       <header className="topbar">
         <a className="wordmark" href="#top"><span className="mark">✦</span> sharon <i>lost + found</i></a>
-        <div className="top-actions"><a href="#board">Browse board</a><button className="button small" onClick={() => setUploadOpen(true)}><Plus size={16} /> Add a find</button></div>
+        <div className="top-actions"><button className="button small" onClick={() => setUploadOpen(true)}><Plus size={16} /> Add a find</button></div>
       </header>
       <section className="board" id="board">
         <div className="section-head"><h2>Lost + found</h2></div>
@@ -135,9 +135,9 @@ function ItemModal({ item, onClose, onClaim, onSaveGuess }: { item: Item; onClos
   const [status, setStatus] = useState('');
   const canShare = useCanShare();
 
-  const save = (event: FormEvent) => { event.preventDefault(); onSaveGuess(item.id, guessName, guessPhone); setStatus('Saved.'); };
   const text = async () => {
     if (!guessPhone) return;
+    onSaveGuess(item.id, guessName, guessPhone);
     setSending(true); setStatus('');
     try {
       const response = await fetch('/api/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone: guessPhone, item: item.name }) });
@@ -154,19 +154,15 @@ function ItemModal({ item, onClose, onClaim, onSaveGuess }: { item: Item; onClos
       <div className="detail-copy">
         <p className="kicker">Found {item.date}</p>
         <h2>{item.name}</h2>
-        <form className="notify-block" onSubmit={save}>
+        <div className="notify-block">
           <p className="notify-label"><MessageCircle size={16} /> Who might this be?</p>
           {canShare && <><button type="button" className="button small share-btn" onClick={() => shareFind(item.name)}><Share2 size={15} /> Share with them</button><p className="notify-divider">or text it for me</p></>}
           <label>I think it might be…<input value={guessName} onChange={(e) => setGuessName(e.target.value)} placeholder="e.g. Alex" /></label>
           <label>Their phone number<input value={guessPhone} onChange={(e) => setGuessPhone(e.target.value)} type="tel" placeholder="(304) 555-0123" /></label>
-          <small className="consent-note">By entering their number, you&rsquo;re OK with us sending them one text about this find. Nothing else, nothing stored beyond that.</small>
-          <div className="guess-actions">
-            <button className="button small" type="submit">Save</button>
-            <button className="button small" type="button" disabled={!guessPhone || sending} onClick={text}>{sending ? 'Sending…' : <>Text them <Send size={15} /></>}</button>
-          </div>
+          <button className="button full" type="button" disabled={!guessPhone || sending} onClick={text}>{sending ? 'Sending…' : <>Text them <Send size={15} /></>}</button>
           {status && <small className="guess-status">{status}</small>}
-        </form>
-        {!item.claimed ? <button className="button full" type="button" onClick={() => onClaim(item.id)}><Check size={17} /> This is mine</button> : <p className="claimed-line"><Check size={16} /> Claimed</p>}
+        </div>
+        {!item.claimed ? <button className="button full" type="button" onClick={() => onClaim(item.id)}><Check size={17} /> Claimed</button> : <p className="claimed-line"><Check size={16} /> Claimed</p>}
       </div>
     </div>
   </div>;

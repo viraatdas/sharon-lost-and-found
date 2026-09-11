@@ -95,8 +95,6 @@ footer a { font-family:'Silkscreen',monospace; font-size:11px; }
 .detail-photo .claimed-stamp.big { font-size:12px; padding:8px 10px; }
 .detail-copy { padding:20px 18px 24px; }
 .detail-copy h2 { font-size:24px; margin:6px 0 0; }
-.guess-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
-.guess-actions .button { flex:1 1 130px; }
 .guess-status { display:block; margin-top:10px; font-size:15px; }
 .claimed-line { display:flex; align-items:center; gap:6px; font-family:'Silkscreen',monospace; font-size:12px; margin-top:20px; }
 @media (min-width:640px) {
