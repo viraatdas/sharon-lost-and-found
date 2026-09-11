@@ -3,3 +3,6 @@
 .rudder-worktrees/
 RUDDER.md
 RUDDER_SHARED.md
+node_modules/
+.next/
+.env.local
