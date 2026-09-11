@@ -1,0 +1,5 @@
+.rudder/
+.rudder-workspaces/
+.rudder-worktrees/
+RUDDER.md
+RUDDER_SHARED.md
