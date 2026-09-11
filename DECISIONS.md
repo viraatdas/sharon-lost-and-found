@@ -8,3 +8,9 @@ Shared, agent-authored log of cross-cutting decisions the fleet must honor. The 
 - **Delivery:** verified; web; target=sharonlostandfound.viraat.dev; revision=0436638; verifiedAt=2026-09-11T18:00:30Z; checks=5
 - **By:** worker · 2026-09-11T18:00:34.137Z
 
+## worker: Replaced the hero with the user-provided photo gallery and
+- **Did:** Replaced the hero with the user-provided photo gallery and redeployed.
+- **Interfaces:** Public photo gallery: https://sharonlostandfound.viraat.dev
+- **Delivery:** deployed; web; target=sharonlostandfound.viraat.dev; revision=cc3ecb6; verifiedAt=2026-09-11T18:05:37Z; checks=4
+- **By:** worker · 2026-09-11T18:05:42.906Z
+
