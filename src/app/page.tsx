@@ -140,7 +140,7 @@ function ItemModal({ item, onClose, onClaim, onSaveGuess }: { item: Item; onClos
     onSaveGuess(item.id, guessName, guessPhone);
     setSending(true); setStatus('');
     try {
-      const response = await fetch('/api/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone: guessPhone, item: item.name }) });
+      const response = await fetch('/api/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone: guessPhone, item: item.name, image: item.image }) });
       const data = await response.json();
       setStatus(data.delivered ? `Text sent to ${guessName || 'them'}!` : data.reason ?? data.error ?? 'Could not send the text.');
     } catch { setStatus('Could not send the text.'); }
