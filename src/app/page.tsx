@@ -90,7 +90,7 @@ export default function Home() {
           </>
         )}
       </section>
-      <footer><span>Made for the people of Sharon</span><div className="footer-actions"><button className="text-button print" onClick={() => window.print()}>Print QR code <span>↗</span></button><a href="#top">Back to top ↑</a></div></footer>
+      <footer><span>Made for the people of Sharon, run by Viraat Das &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span><div className="footer-actions"><button className="text-button print" onClick={() => window.print()}>Print QR code <span>↗</span></button><a href="#top">Back to top ↑</a></div></footer>
       <section className="print-flyer" aria-hidden="true">
         <p className="print-mark">✦</p>
         <h1>Sharon Lost + Found</h1>
